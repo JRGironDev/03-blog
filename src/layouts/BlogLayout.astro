@@ -2,15 +2,15 @@
 import { ClientRouter } from "astro:transitions";
 
 import "../styles/blog.css";
+import { siteConfig } from "src/config/site-config";
 
 interface Props {
   title?: string;
   frontmatter?: any;
 }
 
-const { title, ...rest } = Astro.props;
-const frontmatter = rest.frontmatter;
-console.log(frontmatter);
+const { title } = Astro.props;
+//const frontmatter = rest.frontmatter;
 ---
 
 <!doctype html>
@@ -20,7 +20,7 @@ console.log(frontmatter);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{frontmatter.title}</title>
+    <title>{title ?? siteConfig.title}</title>
 
     <ClientRouter />
   </head>
