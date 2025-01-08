@@ -3,8 +3,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 import { siteConfig } from "../config/site-config";
 import BlogPost from "../components/BlogPost.astro";
-
-const posts = await Astro.glob("./posts/*.md");
 ---
 
 <MainLayout title="Blog de José Quinonez">
@@ -17,9 +15,9 @@ const posts = await Astro.glob("./posts/*.md");
         {siteConfig.title}
       </h1>
 
-      <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+      <!-- <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
         {posts.map((post) => <BlogPost {...post} />)}
-      </div>
+      </div> -->
     </div>
   </section>
 </MainLayout>
