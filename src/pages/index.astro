@@ -1,13 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
-import { siteConfig } from '../config/site-config';
-import MainLayout from '../layouts/MainLayout.astro';
-import TypedBlogPost from 'src/components/TypedBlogPost.astro';
+import { getCollection } from "astro:content";
+import { siteConfig } from "../config/site-config";
+import MainLayout from "../layouts/MainLayout.astro";
+import TypedBlogPost from "src/components/TypedBlogPost.astro";
 
-const blogPosts = await getCollection('blog');
+const blogPosts = await getCollection("blog");
 ---
 
-<MainLayout title="Fernando's Blog">
+<MainLayout title="Jose's Blog">
   <!-- component -->
   <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
@@ -17,9 +17,17 @@ const blogPosts = await getCollection('blog');
         {siteConfig.title}
       </h1>
 
+      <a href="/blog/1">Blog paginado</a>
+
       <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
         {blogPosts.map((post) => <TypedBlogPost post={post} />)}
       </div>
     </div>
   </section>
 </MainLayout>
+
+<style>
+  a {
+    @apply text-blue-500 hover:underline cursor-pointer;
+  }
+</style>
